@@ -9,7 +9,12 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: ['http://localhost:3000','https://baby-cares-store.vercel.app/products'],
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true, 
+  allowedHeaders: 'Content-Type, Authorization',
+}));
 app.use(express.json());
 
 
